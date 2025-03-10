@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"../components/Main.tsx -> ./SendMsg\":{\"id\":\"../components/Main.tsx -> ./SendMsg\",\"files\":[\"static/chunks/components_SendMsg_tsx.js\"]}}"
