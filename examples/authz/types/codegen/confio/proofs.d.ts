@@ -48,7 +48,7 @@ export declare function lengthOpFromJSON(object: any): LengthOp;
 export declare function lengthOpToJSON(object: LengthOp): string;
 /**
  * ExistenceProof takes a key and a value and a set of steps to perform on it.
- * The result of peforming all these steps will provide a "root hash", which can
+ * The result of performing all these steps will provide a "root hash", which can
  * be compared to the value in a header.
  *
  * Since it is computationally infeasible to produce a hash collission for any of the used
@@ -79,7 +79,7 @@ export interface ExistenceProofProtoMsg {
 }
 /**
  * ExistenceProof takes a key and a value and a set of steps to perform on it.
- * The result of peforming all these steps will provide a "root hash", which can
+ * The result of performing all these steps will provide a "root hash", which can
  * be compared to the value in a header.
  *
  * Since it is computationally infeasible to produce a hash collission for any of the used
@@ -110,7 +110,7 @@ export interface ExistenceProofAminoMsg {
 }
 /**
  * ExistenceProof takes a key and a value and a set of steps to perform on it.
- * The result of peforming all these steps will provide a "root hash", which can
+ * The result of performing all these steps will provide a "root hash", which can
  * be compared to the value in a header.
  *
  * Since it is computationally infeasible to produce a hash collission for any of the used
@@ -371,7 +371,7 @@ export interface InnerOpSDKType {
  *
  * As demonstrated in tests, if we don't fix the algorithm used to calculate the
  * LeafHash for a given tree, there are many possible key-value pairs that can
- * generate a given hash (by interpretting the preimage differently).
+ * generate a given hash (by interpreting the preimage differently).
  * We need this for proper security, requires client knows a priori what
  * tree format server uses. But not in code, rather a configuration object.
  */
@@ -399,7 +399,7 @@ export interface ProofSpecProtoMsg {
  *
  * As demonstrated in tests, if we don't fix the algorithm used to calculate the
  * LeafHash for a given tree, there are many possible key-value pairs that can
- * generate a given hash (by interpretting the preimage differently).
+ * generate a given hash (by interpreting the preimage differently).
  * We need this for proper security, requires client knows a priori what
  * tree format server uses. But not in code, rather a configuration object.
  */
@@ -427,7 +427,7 @@ export interface ProofSpecAminoMsg {
  *
  * As demonstrated in tests, if we don't fix the algorithm used to calculate the
  * LeafHash for a given tree, there are many possible key-value pairs that can
- * generate a given hash (by interpretting the preimage differently).
+ * generate a given hash (by interpreting the preimage differently).
  * We need this for proper security, requires client knows a priori what
  * tree format server uses. But not in code, rather a configuration object.
  */
