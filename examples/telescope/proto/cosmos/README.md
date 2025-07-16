@@ -1,7 +1,7 @@
-> **⚠️ DEPRECATION NOTICE**
-> 
-> **This package is deprecated and no longer maintained.** 
-> 
-> Please use [**create-interchain-app**](https://github.com/hyperweb-io/create-interchain-app) instead, which provides the latest features and improvements for building Interchain applications.
-> 
+> **⚠️ UPGRADE TO 2.0**
+>
+> **Create Cosmos App 2.0 is here!** This package has been superseded by the new version.
+>
+> Please upgrade to [**Create Interchain App**](https://github.com/hyperweb-io/create-interchain-app) (Create Cosmos App 2.0), featuring enhanced capabilities and expanded Interchain ecosystem support.
+
 # cosmos

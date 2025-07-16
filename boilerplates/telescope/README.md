@@ -1,10 +1,10 @@
-> **⚠️ DEPRECATION NOTICE**
-> 
-> **This package is deprecated and no longer maintained.** 
-> 
-> Please use [**create-interchain-app**](https://github.com/hyperweb-io/create-interchain-app) instead, which provides the latest features and improvements for building Interchain applications.
+> **⚠️ UPGRADE TO 2.0**
+>
+> **Create Cosmos App 2.0 is here!** This package has been superseded by the new version.
+>
+> Please upgrade to [**Create Interchain App**](https://github.com/hyperweb-io/create-interchain-app) (Create Cosmos App 2.0), featuring enhanced capabilities and expanded Interchain ecosystem support.
 
-# __PACKAGE_IDENTIFIER__
+# **PACKAGE_IDENTIFIER**
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/545047/188804067-28e67e5e-0214-4449-ab04-2e0c564a6885.svg" width="80"><br />
@@ -18,28 +18,28 @@
    <a href="https://github.com/__USERNAME__/__MODULENAME__/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 </p>
 
-
 ## install
 
 ```sh
 npm install __PACKAGE_IDENTIFIER__
 ```
+
 ## Table of contents
 
-- [__PACKAGE_IDENTIFIER__](#__PACKAGE_IDENTIFIER__)
+- [**PACKAGE_IDENTIFIER**](#__PACKAGE_IDENTIFIER__)
   - [Install](#install)
   - [Table of contents](#table-of-contents)
 - [Usage](#usage)
-    - [RPC Clients](#rpc-clients)
-    - [Composing Messages](#composing-messages)
-        - Cosmos, CosmWasm, and IBC
-            - [CosmWasm](#cosmwasm-messages)
-            - [IBC](#ibc-messages)
-            - [Cosmos](#cosmos-messages)
+  - [RPC Clients](#rpc-clients)
+  - [Composing Messages](#composing-messages)
+    - Cosmos, CosmWasm, and IBC
+      - [CosmWasm](#cosmwasm-messages)
+      - [IBC](#ibc-messages)
+      - [Cosmos](#cosmos-messages)
 - [Wallets and Signers](#connecting-with-wallets-and-signing-messages)
-    - [Stargate Client](#initializing-the-stargate-client)
-    - [Creating Signers](#creating-signers)
-    - [Broadcasting Messages](#broadcasting-messages)
+  - [Stargate Client](#initializing-the-stargate-client)
+  - [Creating Signers](#creating-signers)
+  - [Broadcasting Messages](#broadcasting-messages)
 - [Advanced Usage](#advanced-usage)
 - [Developing](#developing)
 - [Codegen](#codegen)
@@ -48,35 +48,33 @@ npm install __PACKAGE_IDENTIFIER__
 - [Credits](#credits)
 
 ## Usage
+
 ### RPC Clients
 
 ```js
-import { __CHAINNAME__ } from '__PACKAGE_IDENTIFIER__';
+import { __CHAINNAME__ } from "__PACKAGE_IDENTIFIER__";
 
-const { createRPCQueryClient } = __CHAINNAME__.ClientFactory; 
+const { createRPCQueryClient } = __CHAINNAME__.ClientFactory;
 const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
 
 // now you can query the cosmos modules
-const balance = await client.cosmos.bank.v1beta1
-    .allBalances({ address: '__CHAINNAME__1addresshere' });
+const balance = await client.cosmos.bank.v1beta1.allBalances({
+  address: "__CHAINNAME__1addresshere",
+});
 
 // you can also query the __CHAINNAME__ modules
-const balances = await client.__CHAINNAME__.exchange.v1beta1
-    .exchangeBalances()
+const balances = await client.__CHAINNAME__.exchange.v1beta1.exchangeBalances();
 ```
 
 ### Composing Messages
 
-Import the `__CHAINNAME__` object from `__PACKAGE_IDENTIFIER__`. 
+Import the `__CHAINNAME__` object from `__PACKAGE_IDENTIFIER__`.
 
 ```js
-import { __CHAINNAME__ } from '__PACKAGE_IDENTIFIER__';
+import { __CHAINNAME__ } from "__PACKAGE_IDENTIFIER__";
 
-const {
-    createSpotLimitOrder,
-    createSpotMarketOrder,
-    deposit
-} = __CHAINNAME__.exchange.v1beta1.MessageComposer.withTypeUrl;
+const { createSpotLimitOrder, createSpotMarketOrder, deposit } =
+  __CHAINNAME__.exchange.v1beta1.MessageComposer.withTypeUrl;
 ```
 
 #### CosmWasm Messages
@@ -85,56 +83,47 @@ const {
 import { cosmwasm } from "__PACKAGE_IDENTIFIER__";
 
 const {
-    clearAdmin,
-    executeContract,
-    instantiateContract,
-    migrateContract,
-    storeCode,
-    updateAdmin
+  clearAdmin,
+  executeContract,
+  instantiateContract,
+  migrateContract,
+  storeCode,
+  updateAdmin,
 } = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages
 
 ```js
-import { ibc } from '__PACKAGE_IDENTIFIER__';
+import { ibc } from "__PACKAGE_IDENTIFIER__";
 
-const {
-    transfer
-} = ibc.applications.transfer.v1.MessageComposer.withTypeUrl
+const { transfer } = ibc.applications.transfer.v1.MessageComposer.withTypeUrl;
 ```
 
 #### Cosmos Messages
 
 ```js
-import { cosmos } from '__PACKAGE_IDENTIFIER__';
+import { cosmos } from "__PACKAGE_IDENTIFIER__";
 
 const {
-    fundCommunityPool,
-    setWithdrawAddress,
-    withdrawDelegatorReward,
-    withdrawValidatorCommission
+  fundCommunityPool,
+  setWithdrawAddress,
+  withdrawDelegatorReward,
+  withdrawValidatorCommission,
 } = cosmos.distribution.v1beta1.MessageComposer.fromPartial;
 
-const {
-    multiSend,
-    send
-} = cosmos.bank.v1beta1.MessageComposer.fromPartial;
+const { multiSend, send } = cosmos.bank.v1beta1.MessageComposer.fromPartial;
 
 const {
-    beginRedelegate,
-    createValidator,
-    delegate,
-    editValidator,
-    undelegate
+  beginRedelegate,
+  createValidator,
+  delegate,
+  editValidator,
+  undelegate,
 } = cosmos.staking.v1beta1.MessageComposer.fromPartial;
 
-const {
-    deposit,
-    submitProposal,
-    vote,
-    voteWeighted
-} = cosmos.gov.v1beta1.MessageComposer.fromPartial;
+const { deposit, submitProposal, vote, voteWeighted } =
+  cosmos.gov.v1beta1.MessageComposer.fromPartial;
 ```
 
 ## Connecting with Wallets and Signing Messages
@@ -148,46 +137,50 @@ Here are the docs on [creating signers](https://docs.hyperweb.io/cosmos-kit) in 
 Use `getSigning__CHAIN_UPPER__Client` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigning__CHAIN_UPPER__Client } from '__MODULENAME__';
+import { getSigning__CHAIN_UPPER__Client } from "__MODULENAME__";
 
 const stargateClient = await getSigning__CHAIN_UPPER__Client({
   rpcEndpoint,
-  signer // OfflineSigner
+  signer, // OfflineSigner
 });
 ```
+
 ### Creating Signers
 
 To broadcast messages, you can create signers with a variety of options:
 
-* [cosmos-kit](https://docs.hyperweb.io/cosmos-kit) (recommended)
-* [keplr](https://docs.keplr.app/api/cosmjs.html)
-* [cosmjs](https://gist.github.com/webmaster128/8444d42a7eceeda2544c8a59fbd7e1d9)
+- [cosmos-kit](https://docs.hyperweb.io/cosmos-kit) (recommended)
+- [keplr](https://docs.keplr.app/api/cosmjs.html)
+- [cosmjs](https://gist.github.com/webmaster128/8444d42a7eceeda2544c8a59fbd7e1d9)
+
 ### Amino Signer
 
 Likely you'll want to use the Amino, so unless you need proto, you should use this one:
 
 ```js
-import { getOfflineSignerAmino as getOfflineSigner } from 'cosmjs-utils';
+import { getOfflineSignerAmino as getOfflineSigner } from "cosmjs-utils";
 ```
+
 ### Proto Signer
 
 ```js
-import { getOfflineSignerProto as getOfflineSigner } from 'cosmjs-utils';
+import { getOfflineSignerProto as getOfflineSigner } from "cosmjs-utils";
 ```
 
 WARNING: NOT RECOMMENDED TO USE PLAIN-TEXT MNEMONICS. Please take care of your security and use best practices such as AES encryption and/or methods from 12factor applications.
 
 ```js
-import { chains } from 'chain-registry';
+import { chains } from "chain-registry";
 
 const mnemonic =
-  'unfold client turtle either pilot stock floor glow toward bullet car science';
-  const chain = chains.find(({ chain_name }) => chain_name === '__CHAINNAME__');
-  const signer = await getOfflineSigner({
-    mnemonic,
-    chain
-  });
+  "unfold client turtle either pilot stock floor glow toward bullet car science";
+const chain = chains.find(({ chain_name }) => chain_name === "__CHAINNAME__");
+const signer = await getOfflineSigner({
+  mnemonic,
+  chain,
+});
 ```
+
 ### Broadcasting Messages
 
 Now that you have your `stargateClient`, you can broadcast messages:
@@ -196,30 +189,29 @@ Now that you have your `stargateClient`, you can broadcast messages:
 const { send } = cosmos.bank.v1beta1.MessageComposer.withTypeUrl;
 
 const msg = send({
-    amount: [
+  amount: [
     {
-        denom: 'coin',
-        amount: '1000'
-    }
-    ],
-    toAddress: address,
-    fromAddress: address
+      denom: "coin",
+      amount: "1000",
+    },
+  ],
+  toAddress: address,
+  fromAddress: address,
 });
 
 const fee: StdFee = {
-    amount: [
+  amount: [
     {
-        denom: 'coin',
-        amount: '864'
-    }
-    ],
-    gas: '86364'
+      denom: "coin",
+      amount: "864",
+    },
+  ],
+  gas: "86364",
 };
 const response = await stargateClient.signAndBroadcast(address, [msg], fee);
 ```
 
 ## Advanced Usage
-
 
 If you want to manually construct a stargate client
 
@@ -227,7 +219,7 @@ If you want to manually construct a stargate client
 import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 
-import { 
+import {
     cosmosAminoConverters,
     cosmosProtoRegistry,
     cosmwasmAminoConverters,
@@ -304,26 +296,25 @@ cd dist
 npm publish
 ```
 
-## Interchain JavaScript Stack 
+## Interchain JavaScript Stack
 
 A unified toolkit for building applications and smart contracts in the Interchain ecosystem ⚛️
 
-| Category              | Tools                                                                                                                  | Description                                                                                           |
-|----------------------|------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| **Chain Information**   | [**Chain Registry**](https://github.com/hyperweb-io/chain-registry), [**Utils**](https://www.npmjs.com/package/@chain-registry/utils), [**Client**](https://www.npmjs.com/package/@chain-registry/client) | Everything from token symbols, logos, and IBC denominations for all assets you want to support in your application. |
-| **Wallet Connectors**| [**Interchain Kit**](https://github.com/hyperweb-io/interchain-kit)<sup>beta</sup>, [**Cosmos Kit**](https://github.com/hyperweb-io/cosmos-kit) | Experience the convenience of connecting with a variety of web3 wallets through a single, streamlined interface. |
-| **Signing Clients**          | [**InterchainJS**](https://github.com/hyperweb-io/interchainjs)<sup>beta</sup>, [**CosmJS**](https://github.com/cosmos/cosmjs) | A single, universal signing interface for any network |
-| **SDK Clients**              | [**Telescope**](https://github.com/hyperweb-io/telescope)                                                          | Your Frontend Companion for Building with TypeScript with Cosmos SDK Modules. |
-| **Starter Kits**     | [**Create Interchain App**](https://github.com/hyperweb-io/create-interchain-app)<sup>beta</sup>, [**Create Cosmos App**](https://github.com/hyperweb-io/create-cosmos-app) | Set up a modern Interchain app by running one command. |
-| **UI Kits**          | [**Interchain UI**](https://github.com/hyperweb-io/interchain-ui)                                                   | The Interchain Design System, empowering developers with a flexible, easy-to-use UI kit. |
-| **Testing Frameworks**          | [**Starship**](https://github.com/hyperweb-io/starship)                                                             | Unified Testing and Development for the Interchain. |
-| **TypeScript Smart Contracts** | [**Create Hyperweb App**](https://github.com/hyperweb-io/create-hyperweb-app)                              | Build and deploy full-stack blockchain applications with TypeScript |
-| **CosmWasm Contracts** | [**CosmWasm TS Codegen**](https://github.com/CosmWasm/ts-codegen)                                                   | Convert your CosmWasm smart contracts into dev-friendly TypeScript classes. |
+| Category                       | Tools                                                                                                                                                                                                     | Description                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Chain Information**          | [**Chain Registry**](https://github.com/hyperweb-io/chain-registry), [**Utils**](https://www.npmjs.com/package/@chain-registry/utils), [**Client**](https://www.npmjs.com/package/@chain-registry/client) | Everything from token symbols, logos, and IBC denominations for all assets you want to support in your application. |
+| **Wallet Connectors**          | [**Interchain Kit**](https://github.com/hyperweb-io/interchain-kit)<sup>beta</sup>, [**Cosmos Kit**](https://github.com/hyperweb-io/cosmos-kit)                                                           | Experience the convenience of connecting with a variety of web3 wallets through a single, streamlined interface.    |
+| **Signing Clients**            | [**InterchainJS**](https://github.com/hyperweb-io/interchainjs)<sup>beta</sup>, [**CosmJS**](https://github.com/cosmos/cosmjs)                                                                            | A single, universal signing interface for any network                                                               |
+| **SDK Clients**                | [**Telescope**](https://github.com/hyperweb-io/telescope)                                                                                                                                                 | Your Frontend Companion for Building with TypeScript with Cosmos SDK Modules.                                       |
+| **Starter Kits**               | [**Create Interchain App**](https://github.com/hyperweb-io/create-interchain-app)<sup>beta</sup>, [**Create Cosmos App**](https://github.com/hyperweb-io/create-cosmos-app)                               | Set up a modern Interchain app by running one command.                                                              |
+| **UI Kits**                    | [**Interchain UI**](https://github.com/hyperweb-io/interchain-ui)                                                                                                                                         | The Interchain Design System, empowering developers with a flexible, easy-to-use UI kit.                            |
+| **Testing Frameworks**         | [**Starship**](https://github.com/hyperweb-io/starship)                                                                                                                                                   | Unified Testing and Development for the Interchain.                                                                 |
+| **TypeScript Smart Contracts** | [**Create Hyperweb App**](https://github.com/hyperweb-io/create-hyperweb-app)                                                                                                                             | Build and deploy full-stack blockchain applications with TypeScript                                                 |
+| **CosmWasm Contracts**         | [**CosmWasm TS Codegen**](https://github.com/CosmWasm/ts-codegen)                                                                                                                                         | Convert your CosmWasm smart contracts into dev-friendly TypeScript classes.                                         |
 
 ## Credits
 
 🛠 Built by Hyperweb (formerly Cosmology) — if you like our tools, please checkout and contribute to [our github ⚛️](https://github.com/hyperweb-io)
-
 
 ## Disclaimer
 
