@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2025-12-11)
+
+
+### Bug Fixes
+
+* custom filtering stake-tokens ([1bec4cc](https://github.com/hyperweb-io/create-cosmos-app/commit/1bec4ccf9676c8c00ba6e8a8c3ff3c7e5e7a0bd7))
+* deps ([b2aa70b](https://github.com/hyperweb-io/create-cosmos-app/commit/b2aa70ba9ef34fd96954c033220ff160d2c8ece7))
+* get price error ([5942063](https://github.com/hyperweb-io/create-cosmos-app/commit/594206360474494b491461eb1bbb802b94e0625c))
+* old ci job yarn4 issues ([#182](https://github.com/hyperweb-io/create-cosmos-app/issues/182)) ([2bb19f7](https://github.com/hyperweb-io/create-cosmos-app/commit/2bb19f75fcc6ffaa4bcb63ecf071009d2f9d7e76))
+* try locks update script ([000aa5f](https://github.com/hyperweb-io/create-cosmos-app/commit/000aa5fc73faa0182a23f50a6402e8b2351a587c))
+* update deps ([1390d23](https://github.com/hyperweb-io/create-cosmos-app/commit/1390d23e7b77fff16f2dd497a0ac406a37af9880))
+* upgrade deps and fix multi chain dropdown ([eecbcaa](https://github.com/hyperweb-io/create-cosmos-app/commit/eecbcaad5e7729f00f9121250c04eb40d201ed80))
+* upgrade interchain ui version and fix z index issue ([e3b6096](https://github.com/hyperweb-io/create-cosmos-app/commit/e3b6096c5a245e101a49e6e00de9d8d3700a7bef))
+* use new combobox in asset-list ([04fe837](https://github.com/hyperweb-io/create-cosmos-app/commit/04fe837277538d23e9760e8f34542f3378ab63f7))
+
+
+### Features
+
+* add SwapView component ([4b04b53](https://github.com/hyperweb-io/create-cosmos-app/commit/4b04b53da26e7b1cde80e89d0ec3d722d87e39c2))
+* enable swap tokens ([8db1cbf](https://github.com/hyperweb-io/create-cosmos-app/commit/8db1cbf3ff06bab0498120da7013329421466561))
+* **swap-tokens:** add swap details ([de33f8f](https://github.com/hyperweb-io/create-cosmos-app/commit/de33f8fb15a4220482480b7d5088cb155b198f3e))
+
+
+
+
+
 ## [1.1.1](https://github.com/hyperweb-io/create-cosmos-app/compare/@cosmology/swap-tokens@1.1.0...@cosmology/swap-tokens@1.1.1) (2025-01-18)
 
 
